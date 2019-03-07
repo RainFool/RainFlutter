@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           appBar: new AppBar(
             title: new Text("Flutter Demo1"),
           ),
-          body: MainPage(),
+          body: TestWidgetPage(),
         ));
   }
 }

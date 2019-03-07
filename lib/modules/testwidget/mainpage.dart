@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:rainflutter/modules/main/coloumn.dart';
 
-class MainPage extends StatelessWidget {
+class TestWidgetPage extends StatefulWidget {
+  @override
+  TestWidgetPageState createState() {
+    return new TestWidgetPageState();
+  }
+}
+
+class TestWidgetPageState extends State<TestWidgetPage> {
   List<String> mainPageData = ["Coloumn", "Other"];
+
   BuildContext mContext;
 
   @override
