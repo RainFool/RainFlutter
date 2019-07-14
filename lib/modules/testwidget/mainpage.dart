@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rainflutter/modules/main/coloumn.dart';
+import 'package:rainflutter/modules/testwidget/coloumn.dart';
+import 'package:rainflutter/modules/testwidget/tutorialpage.dart';
 
 class TestWidgetPage extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class TestWidgetPage extends StatefulWidget {
 }
 
 class TestWidgetPageState extends State<TestWidgetPage> {
-  List<String> mainPageData = ["Coloumn", "Other"];
+  List<String> mainPageData = ["Coloumn", "Tutorial", "Other"];
 
   BuildContext mContext;
 
@@ -42,6 +43,9 @@ class TestWidgetPageState extends State<TestWidgetPage> {
         mContext,
         MaterialPageRoute(builder: (context) => ColoumnPage()),
       );
+    } else if (mainPageData[i] == "Tutorial") {
+      Navigator.push(
+          mContext, MaterialPageRoute(builder: (context) => TutorialPage()));
     }
   }
 }
