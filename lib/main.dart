@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         ),
         home: new Scaffold(
           appBar: new AppBar(
-            title: new Text("Flutter Demo1"),
+            title: new Text("Flutter Demo"),
           ),
           body: TestWidgetPage(),
         ));

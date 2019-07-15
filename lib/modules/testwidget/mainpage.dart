@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rainflutter/modules/testwidget/coloumn.dart';
-import 'package:rainflutter/modules/testwidget/tutorialpage.dart';
+import 'package:rainflutter/modules/tutorial/tutorialpage.dart';
 
 class TestWidgetPage extends StatefulWidget {
   @override
