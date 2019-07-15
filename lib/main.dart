@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rainflutter/listviewdemo.dart';
+import 'package:rainflutter/modules/testwidget/listviewdemo.dart';
 import 'package:dio/dio.dart';
-import 'package:rainflutter/modules/testwidget/mainpage.dart';
+import 'package:rainflutter/modules/mainpage.dart';
 
 void main() => runApp(MyApp());
 

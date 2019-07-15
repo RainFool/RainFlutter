@@ -10,7 +10,12 @@ class TestWidgetPage extends StatefulWidget {
 }
 
 class TestWidgetPageState extends State<TestWidgetPage> {
-  List<String> mainPageData = ["Coloumn", "Tutorial", "Other"];
+  List<String> mainPageData = [
+    "Coloumn",
+    "Tutorial",
+    "Tutorial Animation",
+    "Other"
+  ];
 
   BuildContext mContext;
 
@@ -21,8 +26,8 @@ class TestWidgetPageState extends State<TestWidgetPage> {
       padding: const EdgeInsets.all(16.0),
       itemCount: mainPageData.length,
       separatorBuilder: (context, index) => Divider(
-            color: Colors.black,
-          ),
+        color: Colors.black,
+      ),
       itemBuilder: (context, i) {
         var item = ListTile(
           title: new Container(child: new Text(mainPageData[i])),
@@ -39,13 +44,13 @@ class TestWidgetPageState extends State<TestWidgetPage> {
 
   _onItemTab(int i) {
     if (mainPageData[i] == "Coloumn") {
-      Navigator.push(
-        mContext,
-        MaterialPageRoute(builder: (context) => ColoumnPage()),
-      );
+      _pushPage(ColoumnPage());
     } else if (mainPageData[i] == "Tutorial") {
-      Navigator.push(
-          mContext, MaterialPageRoute(builder: (context) => TutorialPage()));
+      _pushPage(TutorialPage());
     }
+  }
+
+  _pushPage(Widget newPage) {
+    Navigator.push(mContext, MaterialPageRoute(builder: (context) => newPage));
   }
 }
