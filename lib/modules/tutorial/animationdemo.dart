@@ -13,11 +13,6 @@ class TutorialAnimationPage extends StatelessWidget {
         ],
       ),
     );
-    Column(
-      children: <Widget>[
-        LogoApp(),
-      ],
-    );
   }
 }
 
@@ -37,10 +32,16 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
     super.initState();
     animationController =
         AnimationController(duration: const Duration(seconds: 2), vsync: this);
-    animation = Tween<double>(begin: 0, end: 300).animate(animationController)
-      ..addListener(() {
-        setState(() {});
-      });
+    animation =
+        CurvedAnimation(parent: animationController, curve: Curves.easeIn)
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              animationController.reverse();
+            } else if (status == AnimationStatus.dismissed) {
+              animationController.forward();
+            }
+          })
+          ..addStatusListener((state) => print(state));
     animationController.forward();
   }
 
@@ -52,12 +53,31 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    return AnimatedLogo(
+      animation: animation,
+    );
+  }
+}
+
+class AnimatedLogo extends AnimatedWidget {
+  static final _opacityTween = Tween<double>(begin: 0.1, end: 1);
+  static final _sizeTween = Tween<double>(begin: 0, end: 300);
+
+  AnimatedLogo({Key key, Animation<double> animation})
+      : super(key: key, listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    final Animation<double> animation = listenable;
     return Center(
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
-        height: animation.value,
-        width: animation.value,
-        child: FlutterLogo(),
+      child: Opacity(
+        opacity: _opacityTween.evaluate(animation),
+        child: Container(
+          margin: EdgeInsets.symmetric(vertical: 10),
+          width: _sizeTween.evaluate(animation),
+          height: _sizeTween.evaluate(animation),
+          child: FlutterLogo(),
+        ),
       ),
     );
   }
