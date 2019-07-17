@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rainflutter/modules/algorithm/test/NodeTestPage.dart';
+import 'package:rainflutter/modules/demo/network/networkdemopage.dart';
 import 'package:rainflutter/modules/testwidget/coloumn.dart';
 import 'package:rainflutter/modules/tutorial/animationdemo.dart';
 import 'package:rainflutter/modules/tutorial/tutorialpage.dart';
@@ -15,6 +17,8 @@ class TestWidgetPageState extends State<TestWidgetPage> {
     "Coloumn": ColoumnPage(),
     "Tutorial": TutorialPage(),
     "Tutorial Animation": TutorialAnimationPage(),
+    "Node Test": NodeTestPage(),
+    "Dio Demo": NetworkDemoPage(),
     "Other": ColoumnPage()
   };
 
