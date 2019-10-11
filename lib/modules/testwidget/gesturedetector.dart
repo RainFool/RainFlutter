@@ -11,11 +11,7 @@ class GestureDetectorDemoPage extends StatelessWidget {
           children: <Widget>[
             Container(color: Colors.greenAccent),
             GestureDetectTestWidget(),
-            Positioned(
-              left: 100,
-              top: 200,
-              child: _Drag(),
-            )
+            _Drag()
           ],
         ));
   }
@@ -70,19 +66,22 @@ class _DragState extends State<_Drag> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-            child: CircleAvatar(
-              child: Text("A"),
-            ),
-            onPanDown: (e) => print("用户手指按下位置：${e.globalPosition}"),
-            onPanUpdate: (e) =>
-            {
-              this.setState(() {
-                _left += e.delta.dx;
-                _top += e.delta.dy;
-              })
-            },
-            onPanEnd: (e) => {print(e.velocity)},
-          );
+    return Positioned(
+      left: _left,
+      top: _top,
+      child: GestureDetector(
+        child: CircleAvatar(
+          child: Text("A"),
+        ),
+        onPanDown: (e) => print("用户手指按下位置：${e.globalPosition}"),
+        onPanUpdate: (e) => {
+          this.setState(() {
+            _left += e.delta.dx;
+            _top += e.delta.dy;
+          })
+        },
+        onPanEnd: (e) => {print(e.velocity)},
+      ),
+    );
   }
 }
