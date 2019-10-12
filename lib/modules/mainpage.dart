@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rainflutter/modules/algorithm/test/NodeTestPage.dart';
 import 'package:rainflutter/modules/demo/network/networkdemopage.dart';
+import 'package:rainflutter/modules/demo/tantan/tantandemopage.dart';
 import 'package:rainflutter/modules/testwidget/carddemo.dart';
 import 'package:rainflutter/modules/testwidget/coloumn.dart';
 import 'package:rainflutter/modules/testwidget/gesturedetector.dart';
@@ -22,7 +23,8 @@ class TestWidgetPageState extends State<TestWidgetPage> {
     "Sliver Page": SliverPage(),
     "Tutorial": TutorialPage(),
     "Tutorial Animation": TutorialAnimationPage(),
-    "Gesture Detector":GestureDetectorDemoPage(),
+    "Gesture Detector": GestureDetectorDemoPage(),
+    "TanTan Demo": TanTanDemoPage(),
     "Node Test": NodeTestPage(),
     "Dio Demo": NetworkDemoPage(),
     "Other": ColoumnPage()
